@@ -2,6 +2,7 @@ package quantitymeasurement;
 public class QuantityMeasurement {
 
     private double feet;
+    private double inch;
 
     /**
      * main method
@@ -13,11 +14,20 @@ public class QuantityMeasurement {
 
     /**
      * method for getting feet
+     * @param inch
+     * @return
+     */
+    public double getFeet(Double inch) {
+        return inch/12;
+    }
+
+    /**
+     * method foe getting inch
      * @param feet
      * @return
      */
-    public double getFeet(Double feet) {
-        return feet;
+    public double getInch(Double feet) {
+        return feet*12;
     }
 
     /**

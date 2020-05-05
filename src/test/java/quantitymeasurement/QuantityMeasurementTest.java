@@ -10,7 +10,7 @@ public class QuantityMeasurementTest {
      * Given zero feet and zero feet should return true
      */
     @Test
-    public void givenZeroFeetAndZeroValue_WhenCompare_ShouldReturnTrue() {
+    public void givenZeroFeetAndZeroFeet_WhenCompare_ShouldReturnTrue() {
         double value1=quantityMeasurement.getFeet(0.0);
         double value2=quantityMeasurement.getFeet(0.0);
         Assert.assertEquals(value1,value2,0.0);
@@ -62,4 +62,14 @@ public class QuantityMeasurementTest {
         double value2 = quantityMeasurement.getFeet(1.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    /**
+     * Given null feet should return false
+     */
+    @Test
+    public void givenNullInch_WhenCompare_ShouldReturnfalse() {
+        Assert.assertFalse(quantityMeasurement.equals(null));
+    }
+
+
 }
