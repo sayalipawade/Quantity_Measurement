@@ -175,4 +175,15 @@ public class QuantityMeasurementTest
         double value2=quantityMeasurement.conversionOfUnit(Unit.YARD_TO_INCH,1.0);
         Assert.assertNotEquals(value1,value2,0.0);
     }
+
+    /**
+     * Given 1in!=1yd
+     */
+    @Test
+    public void givenOneInchAndOneYard_WhenEqual_ShouldReturnFalse()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.INCH,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.YARD_TO_INCH,1.0);
+        Assert.assertNotEquals(value1,value2,0.0);
+    }
 }
