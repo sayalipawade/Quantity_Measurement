@@ -42,4 +42,24 @@ public class QuantityMeasurementTest {
         double type2=quantityMeasurement.getFeet(0.1);
         Assert.assertEquals(type1,type2,0.0);
     }
+
+    /**
+     * Given Two Different Feet Values When Equal Should Return False
+     */
+    @Test
+    public void givenTwoDifferentFeetValues_WhenEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.getFeet(0.0);
+        double value2 = quantityMeasurement.getFeet(1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    /**
+     * Given Two Equal Feet Values When Equal Should Return True
+     */
+    @Test
+    public void givenTwoEqualFeetValues_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.getFeet(1.0);
+        double value2 = quantityMeasurement.getFeet(1.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
