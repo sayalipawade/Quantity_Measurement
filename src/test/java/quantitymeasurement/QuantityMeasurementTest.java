@@ -95,8 +95,8 @@ public class QuantityMeasurementTest
     @Test
     public void givenTwoDifferentInchValues_WhenEqual_ShouldReturnFalse()
     {
-        double value1 = quantityMeasurement.getFeet(0.0);
-        double value2 = quantityMeasurement.getFeet(1.0);
+        double value1 = quantityMeasurement.getInch(0.0);
+        double value2 = quantityMeasurement.getInch(1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
     }
 
@@ -106,8 +106,8 @@ public class QuantityMeasurementTest
     @Test
     public void givenTwoEqualInchValues_WhenEqual_ShouldReturnTrue()
     {
-        double value1 = quantityMeasurement.getFeet(1.0);
-        double value2 = quantityMeasurement.getFeet(1.0);
+        double value1 = quantityMeasurement.getInch(1.0);
+        double value2 = quantityMeasurement.getInch(1.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 }
