@@ -254,4 +254,16 @@ public class QuantityMeasurementTest
         double result=value1+value2;
         Assert.assertEquals(14,result,0.0);
     }
+
+    /**
+     * Given 1ft+1ft=24in
+     */
+    @Test
+    public void givenOneFeetAndOneFeet_WhenPerformingAddition_shouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,1.0);
+        double result=value1+value2;
+        Assert.assertEquals(24,result,0.0);
+    }
 }
