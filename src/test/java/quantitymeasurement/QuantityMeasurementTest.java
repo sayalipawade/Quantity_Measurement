@@ -278,4 +278,15 @@ public class QuantityMeasurementTest
         double result=value1+value2;
         Assert.assertEquals(3.0,result,0.0);
     }
+
+    /**
+     * Given 1 Gallon=3.78litre
+     */
+    @Test
+    public void givenVolumeInGallonAndLitre_WhenEqual_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.GALLON_TO_LITRE,1);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.LITRE,3.78);
+        Assert.assertEquals(value1,value2,0.0);
+    }
 }
