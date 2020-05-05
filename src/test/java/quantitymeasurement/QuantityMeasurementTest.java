@@ -266,4 +266,16 @@ public class QuantityMeasurementTest
         double result=value1+value2;
         Assert.assertEquals(24,result,0.0);
     }
+
+    /**
+     * Given 2in+2.5cm=3in
+     */
+    @Test
+    public void givenTwoInchAndTwoAndHalfCentimeter_WhenPerformingAddition_shouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.INCH,2.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.CM_TO_INCH,2.5);
+        double result=value1+value2;
+        Assert.assertEquals(3.0,result,0.0);
+    }
 }
