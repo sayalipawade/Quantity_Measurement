@@ -14,23 +14,14 @@ public class QuantityMeasurement
     }
 
     /**
-     * method for getting feet
-     * @param inch
+     * Method for unit conversion
+     * @param units
+     * @param value
      * @return
      */
-    public double getFeet(Double inch)
+    public double conversionOfUnit(Unit units,double value)
     {
-        return inch/12;
-    }
-
-    /**
-     * method foe getting inch
-     * @param feet
-     * @return
-     */
-    public double getInch(Double feet)
-    {
-        return feet*12;
+        return value*units.unit;
     }
 
     /**
@@ -44,8 +35,7 @@ public class QuantityMeasurement
         if(object == null) return false;
         if(this == object) return true;
         if (this.getClass() == object.getClass()) return true;
-        QuantityMeasurement that = (QuantityMeasurement) object;
-        return Double.compare(that.feet, feet) == 0;
+        return super.equals(object);
     }
 }
 
