@@ -112,7 +112,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given Zero feet and zero inch should return equal
+     * Given 0ft=0in
      */
     @Test
     public void givenZeroFeetAndZeroInch_WhenEqual_ShouldReturnTrue()
@@ -123,13 +123,34 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given feet and inch should return not equal
+     * Given 1ft!=1in
+     */
+    @Test
+    public void givenOneFeetAndOneInch_WhenNotEqual_ShouldReturnTrue()
+    {
+        double inch=quantityMeasurement.conversionOfUnit(Unit.FEET,1.0);
+        double feet=quantityMeasurement.conversionOfUnit(Unit.INCH,1.0);
+        Assert.assertNotEquals(inch,feet,0.0);
+    }
+
+    /**
+     * Given 1in!=1ft
+     */
+    @Test
+    public void givenOneInchAndOneFeet_WhenNotEqual_ShouldReturnTrue()
+    {
+        double inch=quantityMeasurement.conversionOfUnit(Unit.FEET,1.0);
+        double feet=quantityMeasurement.conversionOfUnit(Unit.INCH,1.0);
+        Assert.assertNotEquals(inch,feet,0.0);
+    }
+
+    /**
+     * Given 1ft=12in
      */
     @Test
     public void givenFeetAndInch_WhenNotEqual_ShouldReturnTrue()
     {
         double inch=quantityMeasurement.conversionOfUnit(Unit.FEET,1.0);
-        double feet=quantityMeasurement.conversionOfUnit(Unit.INCH,1.0);
-        Assert.assertNotEquals(inch,feet,0.0);
+        Assert.assertEquals(12,inch,0.0);
     }
 }
