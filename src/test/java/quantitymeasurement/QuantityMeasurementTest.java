@@ -208,4 +208,15 @@ public class QuantityMeasurementTest
         double value2=quantityMeasurement.conversionOfUnit(Unit.INCH,36);
         Assert.assertEquals(value1,value2,0.0);
     }
+
+    /**
+     * Given 1yd=3ft
+     */
+    @Test
+    public void givenOneYardAndThreeFeet_WhenEqual_ShouldReturnTrue()
+    {
+        double value2=quantityMeasurement.conversionOfUnit(Unit.YARD_TO_INCH,1.0);
+        double value1=quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,3.0);
+        Assert.assertEquals(value1,value2,0.0);
+    }
 }

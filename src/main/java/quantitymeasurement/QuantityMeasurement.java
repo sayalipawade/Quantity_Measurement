@@ -1,6 +1,9 @@
 package quantitymeasurement;
 public class QuantityMeasurement
 {
+    /**
+     * variables
+     */
     private double feet;
     private double inch;
 
