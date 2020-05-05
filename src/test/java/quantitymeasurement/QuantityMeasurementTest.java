@@ -219,4 +219,15 @@ public class QuantityMeasurementTest
         double value1=quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,3.0);
         Assert.assertEquals(value1,value2,0.0);
     }
+
+    /**
+     * Given 2 Inch = 5 Centimeter
+     */
+    @Test
+    public void givenTwoInchAndFiveCentimeter_WhenCompare_ShouldReturnTrue()
+    {
+        double value1 = quantityMeasurement.conversionOfUnit(Unit.INCH, 2.0);
+        double value2 = quantityMeasurement.conversionOfUnit(Unit.CM_TO_INCH, 5.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
