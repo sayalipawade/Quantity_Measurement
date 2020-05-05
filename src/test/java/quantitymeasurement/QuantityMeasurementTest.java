@@ -230,4 +230,16 @@ public class QuantityMeasurementTest
         double value2 = quantityMeasurement.conversionOfUnit(Unit.CM_TO_INCH, 5.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    /**
+     * Given 2in+2in=4in
+     */
+    @Test
+    public void givenTwoInchAndTwoInch_WhenPerformingAddition_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.INCH,2.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.INCH,2.0);
+        double result=value1+value2;
+        Assert.assertEquals(4.0,result,0.0);
+    }
 }
