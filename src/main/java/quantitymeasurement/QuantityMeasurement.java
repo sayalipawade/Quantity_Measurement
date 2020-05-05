@@ -1,20 +1,18 @@
 package quantitymeasurement;
-
 public class QuantityMeasurement {
 
     private double feet;
 
     /**
-     *main method
+     * main method
      * @param args
-     *
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Quantity measurement");
     }
 
     /**
-     *method for getting feet
+     * method for getting feet
      * @param feet
      * @return
      */
@@ -23,7 +21,7 @@ public class QuantityMeasurement {
     }
 
     /**
-     *object equality method
+     * object equality method
      * @param object
      * @return
      */

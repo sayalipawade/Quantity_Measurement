@@ -32,4 +32,14 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement2=new QuantityMeasurement();
         Assert.assertEquals(quantityMeasurement,quantityMeasurement2);
     }
+
+    /**
+     * TypeCheck
+     */
+    @Test
+    public void givenSameType_WhenCompare_ShouldReturnTrue() {
+        double type1=quantityMeasurement.getFeet(0.1);
+        double type2=quantityMeasurement.getFeet(0.1);
+        Assert.assertEquals(type1,type2,0.0);
+    }
 }
