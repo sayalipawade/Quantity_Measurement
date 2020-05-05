@@ -285,8 +285,19 @@ public class QuantityMeasurementTest
     @Test
     public void givenVolumeInGallonAndLitre_WhenEqual_ShouldReturnTrue()
     {
-        double value1=quantityMeasurement.conversionOfUnit(Unit.GALLON_TO_LITRE,1);
+        double value1=quantityMeasurement.conversionOfUnit(Unit.GALLON_TO_LITRE,1.0);
         double value2=quantityMeasurement.conversionOfUnit(Unit.LITRE,3.78);
+        Assert.assertEquals(value1,value2,0.0);
+    }
+
+    /**
+     * Given 1 litre=1000 ml
+     */
+    @Test
+    public void givenOneLitreAndOneMililiter_WhenEqual_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.LITRE,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000);
         Assert.assertEquals(value1,value2,0.0);
     }
 }
