@@ -27,23 +27,13 @@ public class QuantityMeasurement {
      * @return
      */
     @Override
-        public boolean equals(Object object) {
-            if(object == null) return false;
-            if(this == object) return true;
-            if (this.getClass() == object.getClass()) return true;
-            QuantityMeasurement that = (QuantityMeasurement) object;
-            return Double.compare(that.feet, feet) == 0;
-        }
-
-    /**
-     * method for hashcode
-     * @return
-     */
-    @Override
-        public int hashCode() {
-            return 0;
-        }
-
+    public boolean equals(Object object) {
+        if(object == null) return false;
+        if(this == object) return true;
+        if (this.getClass() == object.getClass()) return true;
+        QuantityMeasurement that = (QuantityMeasurement) object;
+        return Double.compare(that.feet, feet) == 0;
+    }
 }
 
 
