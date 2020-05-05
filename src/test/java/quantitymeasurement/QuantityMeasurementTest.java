@@ -23,4 +23,13 @@ public class QuantityMeasurementTest {
     public void givenNullFeet_WhenCompare_ShouldReturnfalse() {
         Assert.assertFalse(quantityMeasurement.equals(null));
     }
+
+    /**
+     * Reference check
+     */
+    @Test
+    public void givenReference_WhenCompare_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurement2=new QuantityMeasurement();
+        Assert.assertEquals(quantityMeasurement,quantityMeasurement2);
+    }
 }
