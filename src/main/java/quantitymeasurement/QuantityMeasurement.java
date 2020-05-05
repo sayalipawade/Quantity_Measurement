@@ -1,5 +1,6 @@
 package quantitymeasurement;
-public class QuantityMeasurement {
+public class QuantityMeasurement
+{
 
     private double feet;
     private double inch;
@@ -8,7 +9,8 @@ public class QuantityMeasurement {
      * main method
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println("Welcome to Quantity measurement");
     }
 
@@ -17,7 +19,8 @@ public class QuantityMeasurement {
      * @param inch
      * @return
      */
-    public double getFeet(Double inch) {
+    public double getFeet(Double inch)
+    {
         return inch/12;
     }
 
@@ -26,7 +29,8 @@ public class QuantityMeasurement {
      * @param feet
      * @return
      */
-    public double getInch(Double feet) {
+    public double getInch(Double feet)
+    {
         return feet*12;
     }
 
@@ -36,7 +40,8 @@ public class QuantityMeasurement {
      * @return
      */
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         if(object == null) return false;
         if(this == object) return true;
         if (this.getClass() == object.getClass()) return true;
