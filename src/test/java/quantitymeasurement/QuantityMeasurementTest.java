@@ -121,4 +121,15 @@ public class QuantityMeasurementTest
         double feet=quantityMeasurement.conversionOfUnit(Unit.INCH,0.0);
         Assert.assertEquals(inch,feet,0.0);
     }
+
+    /**
+     * Given feet and inch should return not equal
+     */
+    @Test
+    public void givenFeetAndInch_WhenNotEqual_ShouldReturnTrue()
+    {
+        double inch=quantityMeasurement.conversionOfUnit(Unit.FEET,1.0);
+        double feet=quantityMeasurement.conversionOfUnit(Unit.INCH,1.0);
+        Assert.assertNotEquals(inch,feet,0.0);
+    }
 }
