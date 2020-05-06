@@ -346,4 +346,16 @@ public class QuantityMeasurementTest
         double value2=quantityMeasurement.conversionOfUnit(Unit.KILOGRAM,1000);
         Assert.assertEquals(value1,value2,0.0);
     }
+
+    /**
+     * Given 1 tonne + 1000 gm = 1001 kg
+     */
+    @Test
+    public void givenOneTonneAndOneThousandGram_WhenPerformingAddition_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.TONNE_TO_KILOGRAM,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.GRAMS_TO_KILOGRAM,1000);
+        double result=value1+value2;
+        Assert.assertEquals(result,1001,0.0);
+    }
 }
