@@ -335,4 +335,15 @@ public class QuantityMeasurementTest
         double value2=quantityMeasurement.conversionOfUnit(Unit.GRAMS_TO_KILOGRAM,1000);
         Assert.assertEquals(value1,value2,0.0);
     }
+
+    /**
+     * Given 1 tonne = 1000 kgs
+     */
+    @Test
+    public void givenOneTonneAndOneThousandKilogram_WhenEqual_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.TONNE_TO_KILOGRAM,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.KILOGRAM,1000);
+        Assert.assertEquals(value1,value2,0.0);
+    }
 }
