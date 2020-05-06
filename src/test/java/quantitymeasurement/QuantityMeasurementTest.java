@@ -24,7 +24,14 @@ public class QuantityMeasurementTest
     @Test
     public void givenNullFeet_WhenCompare_ShouldReturnfalse()
     {
-        Assert.assertFalse(quantityMeasurement.equals(null));
+        try
+        {
+            quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,null);
+        }
+        catch (NullPointerException e)
+        {
+            Assert.assertEquals(null,e.getMessage());
+        }
     }
 
     /**
@@ -71,12 +78,19 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given null feet should return false
+     * Given null Inch should return false
      */
     @Test
     public void givenNullInch_WhenCompare_ShouldReturnfalse()
     {
-        Assert.assertFalse(quantityMeasurement.equals(null));
+        try
+        {
+            quantityMeasurement.conversionOfUnit(Unit.INCH,null);
+        }
+        catch (NullPointerException e)
+        {
+            Assert.assertEquals(null,e.getMessage());
+        }
     }
 
     /**
@@ -112,7 +126,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 0ft=0in
+     * Given Zero feet and zero inch when equal should return true
      */
     @Test
     public void givenZeroFeetAndZeroInch_WhenEqual_ShouldReturnTrue()
@@ -123,7 +137,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1ft!=1in
+     * Given One feet and one Inch when not equal should return true
      */
     @Test
     public void givenOneFeetAndOneInch_WhenNotEqual_ShouldReturnTrue()
@@ -134,7 +148,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1ft=12in
+     * Given One feet and twelve inch when equal should return true
      */
     @Test
     public void givenOneFeetAndTwelveInch_WhenEqual_ShouldReturnTrue()
@@ -144,18 +158,18 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 12in=1ft
+     * Given twelve inch and one feet when equal should return true
      */
     @Test
     public void givenTwelveInchAndOneFeet_WhenEqual_ShouldReturnTrue()
     {
-      double inch=quantityMeasurement.conversionOfUnit(Unit.INCH,12);
-      double feet=quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,1);
+      double inch=quantityMeasurement.conversionOfUnit(Unit.INCH,12.0);
+      double feet=quantityMeasurement.conversionOfUnit(Unit.FEET_TO_INCH,1.0);
       Assert.assertEquals(inch,feet,0.0);
     }
 
     /**
-     * Given 3ft=1yd
+     * Given three feet and one yard when equal should return true
      */
     @Test
     public void givenThreeFeetAndOneYard_WhenEqual_ShouldReturnTrue()
@@ -166,7 +180,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1ft!=1yd
+     * Given one feet and one yard when equal should return false
      */
     @Test
     public void givenOneFeetAndOneYard_WhenEqual_ShouldReturnFalse()
@@ -177,7 +191,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1in!=1yd
+     * Given one Inch and one yard when equal should return false
      */
     @Test
     public void givenOneInchAndOneYard_WhenEqual_ShouldReturnFalse()
@@ -188,7 +202,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1yd=36in
+     * Given one yard and thirty six Inch when equal should return true
      */
     @Test
     public void givenOneYardAndThirtySixInch_WhenEqual_ShouldReturnTrue()
@@ -199,18 +213,18 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 36in=1yd
+     * Given thirty six inch and one yard when equal should return true
      */
     @Test
     public void givenThirtySixInchAndOneYard_WhenEqual_ShouldReturnTrue()
     {
         double value1=quantityMeasurement.conversionOfUnit(Unit.YARD_TO_INCH,1.0);
-        double value2=quantityMeasurement.conversionOfUnit(Unit.INCH,36);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.INCH,36.0);
         Assert.assertEquals(value1,value2,0.0);
     }
 
     /**
-     * Given 1yd=3ft
+     * Given one yard and three feet when equal should return true
      */
     @Test
     public void givenOneYardAndThreeFeet_WhenEqual_ShouldReturnTrue()
@@ -221,7 +235,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 2 Inch = 5 Centimeter
+     * Given two inch and five centimeter when equal should return true
      */
     @Test
     public void givenTwoInchAndFiveCentimeter_WhenCompare_ShouldReturnTrue()
@@ -232,7 +246,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 2in+2in=4in
+     * Given 2in+2in=4in when this equality is right should return true
      */
     @Test
     public void givenTwoInchAndTwoInch_WhenPerformingAddition_ShouldReturnTrue()
@@ -244,7 +258,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1ft+2in=14in
+     * Given 1ft+2in=14in when this equality is right should return true
      */
     @Test
     public void givenOneFeetAndTwoInch_WhenPerformingAddition_shouldReturnTrue()
@@ -256,7 +270,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1ft+1ft=24in
+     * Given 1ft+1ft=24in when this equality is right should return true
      */
     @Test
     public void givenOneFeetAndOneFeet_WhenPerformingAddition_shouldReturnTrue()
@@ -268,7 +282,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 2in+2.5cm=3in
+     * Given 2in+2.5cm=3in when this equality is right should return true
      */
     @Test
     public void givenTwoInchAndTwoAndHalfCentimeter_WhenPerformingAddition_shouldReturnTrue()
@@ -280,7 +294,7 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1 Gallon=3.78litre
+     * Given 1 Gallon=3.78litre when this equality is right should return true
      */
     @Test
     public void givenVolumeInGallonAndLitre_WhenEqual_ShouldReturnTrue()
@@ -291,18 +305,18 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1 litre=1000 ml
+     * Given 1 litre=1000 ml when this equality is right should return true
      */
     @Test
-    public void givenOneLitreAndOneMililiter_WhenEqual_ShouldReturnTrue()
+    public void givenOneLitreAndOneThousandMililiter_WhenEqual_ShouldReturnTrue()
     {
         double value1=quantityMeasurement.conversionOfUnit(Unit.LITRE,1.0);
-        double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000.0);
         Assert.assertEquals(value1,value2,0.0);
     }
 
     /**
-     * Given 1 gallon + 3.78 litres = 7.57 litres
+     * Given 1gallon+3.78litres=7.57 litres when this equality is right should return true
      */
     @Test
     public void givenOneGallonAndLitre_WhenPerformingAddition_ShouldReturnTrue()
@@ -314,48 +328,59 @@ public class QuantityMeasurementTest
     }
 
     /**
-     * Given 1 litre + 1000 ml = 2 litres
+     * Given 1litre+1000ml=2litres when this equality is right should return true
      */
     @Test
     public void givenOneLitreAndOneThousandMililitre_WhenPerformingAddition_ShouldReturnTrue()
     {
         double value1=quantityMeasurement.conversionOfUnit(Unit.LITRE,1.0);
-        double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000.0);
         double result=value1+value2;
         Assert.assertEquals(2.0,result,0.0);
     }
 
     /**
-     * Given 1 kg = 1000 grams
+     * Given 1kg =1000grams when this equality is right should return true
      */
     @Test
     public void givenOneKilogramAndOneThousandGram_WhenEqual_ShouldReturnTrue()
     {
         double value1=quantityMeasurement.conversionOfUnit(Unit.KILOGRAM,1.0);
-        double value2=quantityMeasurement.conversionOfUnit(Unit.GRAMS_TO_KILOGRAM,1000);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.GRAMS_TO_KILOGRAM,1000.0);
         Assert.assertEquals(value1,value2,0.0);
     }
 
     /**
-     * Given 1 tonne = 1000 kgs
+     * Given 1 tonne = 1000 kgs when this equality is right should return true
      */
     @Test
     public void givenOneTonneAndOneThousandKilogram_WhenEqual_ShouldReturnTrue()
     {
         double value1=quantityMeasurement.conversionOfUnit(Unit.TONNE_TO_KILOGRAM,1.0);
-        double value2=quantityMeasurement.conversionOfUnit(Unit.KILOGRAM,1000);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.KILOGRAM,1000.0);
         Assert.assertEquals(value1,value2,0.0);
     }
 
     /**
-     * Given 1 tonne + 1000 gm = 1001 kg
+     * Given 1 tonne + 1000 gm = 1001 kg when this equality is right should return true
      */
     @Test
     public void givenOneTonneAndOneThousandGram_WhenPerformingAddition_ShouldReturnTrue()
     {
         double value1=quantityMeasurement.conversionOfUnit(Unit.TONNE_TO_KILOGRAM,1.0);
-        double value2=quantityMeasurement.conversionOfUnit(Unit.GRAMS_TO_KILOGRAM,1000);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.GRAMS_TO_KILOGRAM,1000.0);
         double result=value1+value2;
         Assert.assertEquals(result,1001,0.0);
+    }
+
+    /**
+     * Given 212 F = 100 C when this equality is right should return true
+     */
+    @Test
+    public void givenFahrenheitAndCelcius_WhenEqual_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.FAHRENHEIT_TO_CELSIUS,212.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.CELSIUS,100.0);
+        Assert.assertEquals(value1,value2,0.0);
     }
 }

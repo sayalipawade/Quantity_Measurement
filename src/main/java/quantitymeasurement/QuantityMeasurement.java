@@ -2,12 +2,6 @@ package quantitymeasurement;
 public class QuantityMeasurement
 {
     /**
-     * variables
-     */
-    private double feet;
-    private double inch;
-
-    /**
      * main method
      * @param args
      */
@@ -22,7 +16,7 @@ public class QuantityMeasurement
      * @param value
      * @return
      */
-    public double conversionOfUnit(Unit units,double value)
+    public double conversionOfUnit(Unit units,Double value)
     {
         return value*units.unit;
     }
