@@ -300,4 +300,16 @@ public class QuantityMeasurementTest
         double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000);
         Assert.assertEquals(value1,value2,0.0);
     }
+
+    /**
+     * Given 1 gallon + 3.78 litres = 7.57 litres
+     */
+    @Test
+    public void givenOneGallonAndLitre_WhenPerformingAddition_ShouldReturnTrue()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.GALLON_TO_LITRE,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.LITRE,3.78);
+        double result=value1+value2;
+        Assert.assertEquals(7.56,result,0.0);
+    }
 }
