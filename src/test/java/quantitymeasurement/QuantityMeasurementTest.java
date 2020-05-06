@@ -312,4 +312,17 @@ public class QuantityMeasurementTest
         double result=value1+value2;
         Assert.assertEquals(7.56,result,0.0);
     }
+
+    /**
+     * Given 1 litre + 1000 ml = 2 litres
+     */
+    @Test
+    public void givenOneLitreAndOneThousandMililitre_WhenPerformingAddition_Shouls_return_true()
+    {
+        double value1=quantityMeasurement.conversionOfUnit(Unit.LITRE,1.0);
+        double value2=quantityMeasurement.conversionOfUnit(Unit.MILLILITER_TO_LITRE,1000);
+        double result=value1+value2;
+        Assert.assertEquals(2.0,result,0.0);
+
+    }
 }
